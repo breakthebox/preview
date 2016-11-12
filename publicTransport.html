@@ -1,0 +1,51 @@
+<html>
+<script   src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+<body>
+<script>
+
+    var requestConnectionAndVideo = function(){
+        $.get("http://transport.opendata.ch/v1/connections?from="+$("#fromStation").val()+"&to="+$("#toStation").val()+"&limit=1", function(data){
+            var renderedData = typeof data === 'object' ? data : JSON.parse(data);
+            mapConnectionToMovie(renderedData.connections[0]);
+
+        });
+    };
+
+
+    var mapConnectionToMovie = function(connection){
+        var movie = {};
+        movie.scenes = [];
+
+        $.each(connection.sections, function(idx, section){
+            if(section.journey!==undefined && section.journey!==null) {
+                var scene = {};
+                movie.scenes.push(scene);
+                switch (section.journey.category) {
+                    case "NFB":
+                    case "BUS":
+                        scene.animation = "busTravel";
+                        break;
+                    default:
+                        scene.animation = "trainTravel";
+                }
+                scene.parameters = {};
+                scene.parameters.directionLine = section.journey.number;
+                scene.parameters.directionName = section.journey.to;
+            }
+        });
+
+        var encodedMovie = encodeURIComponent(JSON.stringify(movie));
+        window.location.href="composer.html?model="+encodedMovie;
+        //alert(JSON.stringify(movie));
+    };
+
+
+</script>
+
+<input text="from" id="fromStation" placeholder="from"/>
+<input text="to" id="toStation" placeholder="to"/>
+<input type="button" value="submit" onclick="requestConnectionAndVideo()"/>
+
+</body>
+</html>

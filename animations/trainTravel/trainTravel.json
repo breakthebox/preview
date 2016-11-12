@@ -1,0 +1,56 @@
+{
+  "duration": 12000,
+  "components": [
+    {
+      "image": "image/bahnhof.jpg",
+      "width": 1024,
+      "height": 768
+
+    },
+    {
+      "svg": "svg/train.svg",
+      "width": 200,
+      "style": {
+        "font-size": "16px",
+        "transform": "rotateY(40deg) rotateX(30deg) scale(3.5,2.5)"
+      },
+      "animations": [
+        {
+          "css": {
+            "motionPath": "path('M 120,150 L 320,200')"
+          },
+          "animation": [
+            {
+              "motionOffset": 0
+            },
+            {
+              "motionOffset": "100%"
+            }
+          ],
+          "timing": {
+            "duration": 8000,
+            "delay": 1000,
+            "iterationCount": 1,
+            "fill": "both"
+          }
+        },
+        {
+          "animation": [
+            {
+              "transform": "scale(1) rotateY(45deg)"
+            },
+            {
+              "transform": "scale(1.8) rotateY(50deg)"
+            }
+          ],
+          "timing": {
+            "duration": 8000,
+            "delay": 1000,
+            "iterationCount": 1,
+            "fill": "both"
+          }
+        }
+      ]
+    }
+  ]
+}

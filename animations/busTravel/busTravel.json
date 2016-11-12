@@ -1,0 +1,116 @@
+{
+  "duration": 14000,
+  "components": [
+    {
+      "svg": "svg/landscape.svg",
+      "width": 1000,
+      "height": 768
+    },
+    {
+      "svg": "svg/bus.svg",
+      "width": 300,
+      "style": {
+        "font-size": "16px"
+      },
+      "animations": [
+        {
+          "css": {
+            "motionPath": "path('M -300.322034,400.62712 C 100.42374,360.5297 400.8983,400.5391 600.6441,410.4916')"
+          },
+          "animation": [
+            {
+              "motionOffset": 0
+            },
+            {
+              "motionOffset": "100%"
+            }
+          ],
+          "timing": {
+            "duration": 8000,
+            "delay": 1000,
+            "iterationCount": 1,
+            "fill": "both"
+          }
+        },
+        {
+          "animation": [
+            {
+              "transform": "translateY(0px)"
+            },
+            {
+              "transform": "translateY(-3px)"
+            }
+          ],
+          "timing": {
+            "duration": 200,
+            "delay": 1000,
+            "iterations": 40,
+            "fill": "forwards"
+          }
+        }
+      ],
+      "subElements": [
+        {
+          "svg": "svg/rad.svg",
+          "width": 50,
+          "height": 50,
+          "style": {
+            "top": "250px",
+            "left": "77px",
+            "font-size": "16px",
+            "transform-origin": "50% 50%",
+            "transform": "scale(0.5, 1)"
+          },
+          "animations": [
+            {
+              "animation": [
+                {
+                  "transform": "rotate(0deg) "
+                },
+                {
+                  "transform": "rotate(360deg) "
+                }
+              ],
+              "timing": {
+                "duration": 2000,
+                "delay": 1000,
+                "iterations": 4,
+                "fill": "forwards"
+              }
+            }
+          ]
+        },
+        {
+          "svg": "svg/rad.svg",
+          "width": 40,
+          "height": 40,
+          "style": {
+            "top": "251px",
+            "left": "13px",
+            "font-size": "16px",
+            "transform-origin": "50% 50%",
+            "transform": "scale(0.5, 1)"
+          },
+          "animations": [
+            {
+              "animation": [
+                {
+                  "transform": "rotate(0deg) "
+                },
+                {
+                  "transform": "rotate(360deg) "
+                }
+              ],
+              "timing": {
+                "duration": 2000,
+                "delay": 1100,
+                "iterations": 4,
+                "fill": "forwards"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
